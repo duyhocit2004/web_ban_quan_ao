@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Collection;
 
 class HomeModel extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
 
-    private $table = 'products';
+    protected $table = 'products';
 
-    private $fillable = [
+    protected $fillable = [
         'name',
         'color_id',
         'size_id',
@@ -23,8 +24,5 @@ class HomeModel extends Model
         'code_products',
         'availability',
         'material',
-        'deleted_at',
-        'created_at',
-        'updated_at'
     ];
 }

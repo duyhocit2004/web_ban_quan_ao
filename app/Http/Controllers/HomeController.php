@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeModel;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -11,7 +13,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $listSanPhams = HomeModel::All();
+        // var_dump($listSanPhams);die();
+        return view('admin.index');
     }
 
     /**
