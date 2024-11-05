@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('account', function (Blueprint $table) {
             $table->id('id');
             $table->string('username',255);
-            $table->string('phone',255);
-            $table->text('image');
-            $table->timestamp('date_of_birth');
-            $table->string('address',255);
+            $table->string('phone',255)->nullable();
+            $table->text('image')->nullable();
+            $table->timestamp('date_of_birth')->nullable();
+            $table->string('address',255)->nullable();
             $table->string('email',255);
             $table->string('password',255);
             $table->unsignedBigInteger('role_id');

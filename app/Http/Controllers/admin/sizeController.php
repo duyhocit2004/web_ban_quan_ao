@@ -3,20 +3,16 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\ProductsModel;
 use Illuminate\Http\Request;
 
-
-class productController extends Controller
+class sizeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $list = ProductsModel::paginate(10);
-        // var_dump($list);
-        return view('admin.product.list',compact('list'));
+        //
     }
 
     /**
@@ -24,8 +20,7 @@ class productController extends Controller
      */
     public function create()
     {
-        return view('admin.product.add');
-
+        //
     }
 
     /**
@@ -33,11 +28,7 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->isMethod('POST')){
-            // $request->validate([
-            //     ''
-            // ])
-        }
+        //
     }
 
     /**

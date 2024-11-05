@@ -20,7 +20,7 @@
     <main class="page-wrapper compact-wrapper" id="pageWrapper">
       <!-- Page header start -->
       <header class="page-header row">
-        <div class="logo-wrapper d-flex align-items-center col-auto"><a href="index.html"><img class="for-light" src="{{('./admin/assets/images/logo/logo.png')}}" alt="logo"><img class="for-dark" src="{{('./admin/assets/images/logo/dark-logo.png')}}" alt="logo"></a><a class="close-btn" href="javascript:void(0)">
+        <div class="logo-wrapper d-flex align-items-center col-auto"><a href="index.html"><img class="for-light" src="{{asset('./admin/assets/images/logo/logo.png')}}" alt="logo"><img class="for-dark" src="{{('./admin/assets/images/logo/dark-logo.png')}}" alt="logo"></a><a class="close-btn" href="javascript:void(0)">
             <div class="toggle-sidebar">
               <div class="line"></div>
               <div class="line"></div>
@@ -296,7 +296,8 @@
                     <li class="d-flex"> 
                       <svg class="svg-color">
                         <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Login"></use>
-                      </svg><a class="ms-2" href="login.html">Log Out</a>
+                      </svg>
+                        <a class="ms-2" href="{{route('logout')}}" onclick="return confirm('bạn có muốn đăng xuất không')"> logout</a>
                     </li>
                   </ul>
                 </div>

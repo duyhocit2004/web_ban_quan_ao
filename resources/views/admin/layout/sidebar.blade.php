@@ -11,31 +11,27 @@
         </li>
         <li class="line pin-line"></li>
 
-        <li class="sidebar-main-title">General</li>
+        <li class="sidebar-main-title">Quản Lý</li>
         <li class="sidebar-list"> 
           <svg class="pinned-icon">
             <use href="https://admin.pixelstrap.net/admin/assets/svg/iconly-sprite.svg#Pin"></use>
           </svg><a class="sidebar-link" href="javascript:void(0)">
             <svg class="stroke-icon">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Home"></use>
-            </svg><span>Dashboard</span>
-            <div class="badge badge-primary rounded-pill">3</div>
+            </svg><span> Quản lý sản phẩm</span>
+            {{-- <div class="badge badge-primary rounded-pill">3</div> --}}
             <svg class="feather">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right"></use>
             </svg></a>
           <ul class="sidebar-submenu"> 
-            <li><a href="index.html"> 
+            <li><a href="{{route('product')}}"> 
                 <svg class="svg-menu">
                   <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
-                </svg>Default</a></li>
-            <li><a href="dashboard-02.html"> 
+                </svg>danh sách sản phẩm</a></li>
+            <li><a href="{{route('FromProduct')}}"> 
                 <svg class="svg-menu">
                   <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
-                </svg>Ecommerce</a></li>
-            <li><a href="dashboard-03.html"> 
-                <svg class="svg-menu">
-                  <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
-                </svg>Project</a></li>
+                </svg>thêm sản phẩm</a></li>
           </ul>
         </li>
         <li class="sidebar-list"> 
