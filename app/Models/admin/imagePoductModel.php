@@ -14,7 +14,4 @@ class imagePoductModel extends Model
         'product_id',
         'link_image'
     ];
-    public function product(){
-        $this->belongsTo(ProductsModel::class,'product_id','id');
-    }
 }

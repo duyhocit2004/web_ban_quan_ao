@@ -270,10 +270,21 @@
                   </ul>
                 </div>
               </li>
+              
               <li class="profile-dropdown custom-dropdown">
-                <div class="d-flex align-items-center"><img src="{{('./admin/assets/images/profile.png')}}" alt="">
+                <div class="d-flex align-items-center"><img src="{{asset('./admin/assets/images/profile.png')}}" alt="">
                   <div class="flex-grow-1"> 
-                    <h5>Wade Warren</h5><span>UI Designer</span>
+                    <?php if(isset($__SESSION['account_admin'])) {?>
+                    <h5><?=$_SESSION['account_admin']['name']?></h5><span><?php
+                      if($_SESSION['account_admin']['role_ID'] === 2){
+                        echo"admin";
+                      }
+                      ?></span>
+                      <?php }else{?>
+                        <h5></h5><span>
+                          admin
+                          </span>
+                        <?php } ?>
                   </div>
                 </div>
                 <div class="custom-menu overflow-hidden">

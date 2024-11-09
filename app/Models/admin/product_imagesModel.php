@@ -5,13 +5,7 @@ namespace App\Models\admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sizeModel extends Model
+class product_imagesModel extends Model
 {
     use HasFactory;
-    protected $table = 'size';
-    protected $fillable = [
-        'name'
-    ];
-
-
 }

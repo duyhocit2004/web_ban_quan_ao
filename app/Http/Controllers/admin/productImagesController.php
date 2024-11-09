@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\admin\sizeModel;
 use Illuminate\Http\Request;
+use App\Models\admin\ProductsModel;
+use App\Http\Controllers\Controller;
+use App\Models\admin\imagePoductModel;
 
-class sizeController extends Controller
+class productImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $id)
     {
-        $listSize = sizeModel::paginate(10);
-        // dd($listSize);
-        return view('admin.size.listSize',compact('listSize'));
+        $product = ProductsModel::find($id);
+        $imageproduct = imagePoductModel::Where('product_id',$product->id)->get();
+        // dd($imageproduct);
+        return view('admin.addImage.listImage',compact('imageproduct'));
     }
 
     /**
