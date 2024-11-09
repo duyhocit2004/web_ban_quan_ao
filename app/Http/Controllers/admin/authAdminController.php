@@ -40,6 +40,7 @@ class authAdminController extends Controller
     
     public function logout(Request $request){
             Auth::logout();
+            unset($_SESSION['account_admin']);
             return redirect()->route('formlogin');  
     }
 }

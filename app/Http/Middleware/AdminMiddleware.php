@@ -16,7 +16,14 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+      
         if (Auth::check() && Auth::user()->role_id === 2) {
+            $_SESSION['account_admin'] = [
+                'name'=> Auth::user()->username,
+                'image'=> Auth::user()->image,
+                'role_ID'=> Auth::user()->role_id,
+            ];
+            // dd($_SESSION['account_admin']);
             return $next($request); // Cho phép tiếp tục
         }
         

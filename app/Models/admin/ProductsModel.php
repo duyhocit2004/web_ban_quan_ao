@@ -14,6 +14,7 @@ class ProductsModel extends Model
         'name',
         'color_id',
         'size_id',
+        'price',
         'category_id',
         'title',
         'image',
