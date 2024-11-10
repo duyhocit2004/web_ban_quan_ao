@@ -27,7 +27,7 @@
                         <form action="{{route('deletesize',$as->id)}}" method="POST" enctype="multipart/form-data">
                           @csrf
                           @method('DELETE')
-                          <button class="btn btn-danger">xóa</button>
+                          <button class="btn btn-danger" name="button">xóa</button>
                         </form>
                       </td>
                   </tr>

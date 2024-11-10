@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\sizeController;
+use App\Http\Controllers\admin\accountController;
 use App\Http\Controllers\admin\productController;
 use App\Http\Controllers\admin\authAdminController;
 use App\Http\Controllers\admin\productImagesController;
@@ -38,19 +39,20 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     Route::put('/updateproduct/{id}',[productController::class,'update'])->name('updateproduct');
     Route::delete('/deleteproduct/{id}',[productController::class,'destroy'])->name('deleteproduct');
 
-    Route::get('images/{id}',[productImagesController::class,'index'])->name('images');
-    Route::get('Fromimages',[productImagesController::class,'create'])->name('Fromimages');
-    Route::post('addimages',[productImagesController::class,'store'])->name('addimages');
-    Route::get('/getimages/{id}',[productImagesController::class,'edit'])->name('getimages');
-    Route::put('/updateimages/{id}',[productImagesController::class,'update'])->name('updateimages');
-    Route::delete('/deleteimages/{id}',[productImagesController::class,'destroy'])->name('deleteimages');
-
     Route::get('size',[sizeController::class,'index'])->name('size');
     Route::get('Fromsize',[sizeController::class,'create'])->name('Fromsize');
     Route::post('addsize',[sizeController::class,'store'])->name('addsize');
     Route::get('/getsize/{id}',[sizeController::class,'edit'])->name('getsize');
     Route::put('/updatesize/{id}',[sizeController::class,'update'])->name('updatesize');
     Route::delete('/deletesize/{id}',[sizeController::class,'destroy'])->name('deletesize');
+
+    Route::get('account',[accountController::class,'index'])->name('account');
+    Route::get('accountUser',[accountController::class,'show'])->name('accountUser');
+    Route::get('Fromaccount',[accountController::class,'create'])->name('Fromaccount');
+    Route::post('addaccount',[accountController::class,'store'])->name('addaccount');
+    Route::get('/getaccount/{id}',[accountController::class,'edit'])->name('getaccount');
+    Route::put('/updateaccount/{id}',[accountController::class,'update'])->name('updateaccount');
+    Route::delete('/deleteaccount/{id}',[accountController::class,'destroy'])->name('deleteaccount');
 
 
 });

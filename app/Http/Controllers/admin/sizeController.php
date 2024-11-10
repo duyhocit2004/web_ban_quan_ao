@@ -23,7 +23,7 @@ class sizeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.size.addSize');
     }
 
     /**
@@ -31,7 +31,17 @@ class sizeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      if($request->isMethod('POST')){
+        $param = $request->only('name');
+        $request->validate([
+            'name' => 'required|max:25'
+        ],[
+            'name.required'=>'bạn không được để trống',
+            'name.max:25' => 'không được vượt quá 25 ký tự'
+        ]);
+        sizeModel::create($param);
+        return redirect()->route('size');
+      }
     }
 
     /**
@@ -39,7 +49,7 @@ class sizeController extends Controller
      */
     public function show(string $id)
     {
-        //
+    
     }
 
     /**
@@ -47,7 +57,8 @@ class sizeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $listSize = sizeModel::findOrFail($id);
+        return view('admin.size.editSize',compact('listSize'));
     }
 
     /**
@@ -55,14 +66,30 @@ class sizeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if($request->isMethod('PUT')){
+            $update = sizeModel::find($id);
+            $param = $request->only('name');
+            $request->validate([
+                'name' => 'required|max:25'
+            ],[
+                'name.required'=>'bạn không được để trống',
+                'name.max:25' => 'không được vượt quá 25 ký tự'
+            ]);
+            $update->update($param);
+            return redirect()->route('size')->withErrors('thongbao','them thanh cong');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request,string $id)
     {
-        //
+        if($request->isMethod('DELETE')){
+            // dd($id);
+            $id1 = sizeModel::findOrFail($id);
+            $id1->delete();
+            return redirect()->route('size');
+        }
     }
 }
