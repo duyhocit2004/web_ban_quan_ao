@@ -70,10 +70,10 @@ Route::prefix('admin')->middleware('admin')->group(function (){
 
     
     // Quản lý hóa đơn
-    Route::get('cart',[OrderController::class,'index'])->name('Order');
-    Route::get('OrderUser',[OrderController::class,'show'])->name('OrderUser');
-    Route::get('FromOrder',[OrderController::class,'create'])->name('FromOrder');
-    Route::post('addOrder',[OrderController::class,'store'])->name('addOrder');
+    Route::get('order',[OrderController::class,'index'])->name('Order');
+    Route::get('/Orderdetail/{id}',[OrderController::class,'show'])->name('Orderdetail');
+    // Route::get('FromOrder',[OrderController::class,'create'])->name('FromOrder');
+    // Route::post('addOrder',[OrderController::class,'store'])->name('addOrder');
     Route::get('/getOrder/{id}',[OrderController::class,'edit'])->name('getOrder');
     Route::put('/updateOrder/{id}',[OrderController::class,'update'])->name('updateOrder');
     Route::delete('/deleteOrder/{id}',[OrderController::class,'destroy'])->name('deletecart');

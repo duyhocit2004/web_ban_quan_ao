@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\admin\OrderModel;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\admin\OrderDetailModel;
 
 class OrderController extends Controller
 {
@@ -12,7 +15,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $list = DB::table('order',)
+        ->join('payment_status' , 'order.payment_status_id' ,'=' ,'payment_status.id')
+        ->select('order.*','payment_status.name as namestatus')
+        ->orderBy('id','DESC')
+        ->paginate(10);
+        // dd($list);
+        return view('admin.order.list',compact('list'));
     }
 
     /**
@@ -20,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +45,20 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $order = DB::table('order',)
+        ->join('payment_status' , 'order.payment_status_id' ,'=' ,'payment_status.id')
+        ->join('payment_method','order.payment_method_id','=','payment_method.id')
+        ->select('order.*','payment_status.name as namestatus','payment_method.name as methodname')
+        ->orderBy('id','DESC')
+        ->Where('order.id' ,'=',$id)
+        ->first();
+        
+        $detail_order = OrderDetailModel::join('products', 'detail_order.products_id', '=', 'products.id')
+        ->where('detail_order.order_id', '=', $order->id)
+        ->select('detail_order.*', 'products.name as product_name')
+        ->get();
+        // dd($detail_order);
+        return view('admin.order.detail',compact('order','detail_order'));
     }
 
     /**

@@ -117,6 +117,27 @@
           </ul>
         </li>
 
+        <li class="sidebar-list"> 
+          <svg class="pinned-icon">
+            <use href="https://admin.pixelstrap.net/admin/assets/svg/iconly-sprite.svg#Pin1"></use>
+          </svg><a class="sidebar-link" href="javascript:void(0)">
+            <svg class="stroke-icon">
+              <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#order"></use>
+            </svg><span> Quản lý đơn hàng</span>
+            {{-- <div class="badge badge-primary rounded-pill">3</div> --}}
+            <svg class="feather">
+              <use href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right"></use>
+            </svg></a>
+          <ul class="sidebar-submenu"> 
+            <li>
+              <a href="{{route('Order')}}"> 
+                <svg class="svg-menu">
+                  <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
+                </svg>danh sách order</a>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </div>
     <div class="right-arrow" id="right-arrow">
