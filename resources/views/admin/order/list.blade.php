@@ -4,16 +4,16 @@
     <div class="row"> 
       <div class="col-sm-12">
         <div class="card">
-          @if ($errors->has('error'))
-              <div class="alert alert-success">
-                  {{ $errors->first('error') }}
-              </div>
+          @if(session('errors'))
+            <div class="alert alert-success">
+                {{ session('errors') }}
+            </div>
           @endif
           <div class="card-header">
-            <h4>Danh sách liên hệ</h4>
+            <h4>Danh sách đơn hàng</h4>
           </div>
           <div class="table-responsive">
-            <a class="btn btn-primary" href="{{route('Fromcontact')}}"> thêm liên hệ</a>
+            
             <table class="table">
               <thead>
                 <tr class="b-b-primary">
@@ -34,7 +34,7 @@
                     <th scope="row">{{$as->note}}</th>    
                     <th scope="row">{{$as->namestatus}}</th>    
                     <td>
-                        <a class="btn btn-primary my-1" href="{{route('getcontact',$as->id)}}">sửa</a>
+                        <a class="btn btn-primary my-1" href="{{route('getOrder',$as->id)}}">sửa</a>
                         <a class="btn btn-warning my-1" href="{{route('Orderdetail',$as->id)}}">
                           chi tiết
                         </a>
