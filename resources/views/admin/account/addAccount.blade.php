@@ -13,14 +13,25 @@
             <label class="form-label">tên</label>
           </div>
           <div class="col-sm-9">
-            <input class="form-control" type="text"name="username" placeholder="tên sản phẩm" value="{{old('username')}}">
+            <input class="form-control" type="text"name="username" placeholder="tên người dùng" value="{{old('username')}}">
             @error('username')
               <p class="text-danger">{{$message}}</p>
             @enderror
           </div>
 
           <div class="col-sm-3">
-            <label class="form-label">ảnh sản phẩm</label>
+            <label class="form-label">mật khẩu</label>
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control"   type="password" name="password" placeholder="mật khẩu" value="{{old('password')}}">
+            @error('password')
+              <p class="text-danger">{{$message}}</p>
+            @enderror
+          </div>
+
+          
+          <div class="col-sm-3">
+            <label class="form-label">ảnh</label>
           </div>
           <div class="col-sm-9">
             <input class="form-control"   type="file" name="image" placeholder="ảnh" value="{{old('image')}}">
@@ -30,69 +41,38 @@
           </div>
 
           <div class="col-sm-3">
-            <label class="form-label">giá sản phẩm</label>
+            <label class="form-label">email</label>
           </div>
           <div class="col-sm-9">
-            <input class="form-control"   type="text" name="price" placeholder="giá sản phẩm" value="{{old('price')}}">
-            @error('price')
+            <input class="form-control"   type="email" name="email" placeholder="email" value="{{old('email')}}">
+            @error('email')
               <p class="text-danger">{{$message}}</p>
             @enderror
-          </div>
-
-          <div class="col-sm-3">
-            <label class="form-label">số lượng</label>
-          </div>
-          <div class="col-sm-9">
-            <input class="form-control"   type="text" name="quantity" placeholder="só lượng" value="{{old('quantity')}}">
-            @error('quantity')
-              <p class="text-danger">{{$message}}</p>
-            @enderror
-          </div>
-
-          <div class="col-sm-3">
-            <label class="form-label">chất liệu</label>
-          </div>
-          <div class="col-sm-9">
-            <input class="form-control"   type="text" name="material" placeholder="chất liệu" value="{{old('material')}}">
-            @error('material')
-              <p class="text-danger">{{$message}}</p>
-            @enderror
-          </div>  
-
-          <div class="row">
-            <div class="col">
-              <div class="mb-3">
-                <label class="form-label" for="edgestextarea">tiêu đề </label>
-                <textarea class="form-control" name="title" id="edgestextarea" rows="3"  value="{{old('title')}}"></textarea>
-                @error('title')
-              <p class="text-danger">{{$message}}</p>
-            @enderror
-              </div>
-            </div>
           </div>
 
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <label class="form-label" for="raiseselect">thể loai</label>
-                <select name="categories_id" class="form-select" id="raiseselect">
-                  @foreach ( $role as $role1 )
-                  <option value="{{$role1->id}}">{{$role1->name}}</option>
+                <label class="form-label" for="raiseselect">vai trò</label>
+                <select name="role_id" class="form-select" id="raiseselect">
+                  @foreach ( $role as $cate )
+                  <option value="{{$cate->id}}">{{$cate->name}}</option>
                   @endforeach
                 </select>
               </div>
             </div>
           </div>
-
+          
           <div class="row">
             <div class="col">
               <div class="text-end">
-                <button class="btn btn-primary me-2" type="submit">Submit</button>
-                <input class="btn btn-danger" type="reset" value="Cancel">
+                <button class="btn btn-primary me-2" type="submit">thêm</button>
+                <a class="btn btn-danger" href="{{route('contact')}}">thoát</a>
               </div>
             </div>
           </div>
           
+
         </form>
       </div>
     </div>

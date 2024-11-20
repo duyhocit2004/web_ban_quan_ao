@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Models\admin\roleModel;
 use App\Models\admin\accountModel;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\admin\roleModel;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class accountController extends Controller
 {
@@ -29,6 +31,7 @@ class accountController extends Controller
     public function create()
     {
         $role = roleModel::get();
+        // dd($role);
         return view('admin.account.addAccount',compact('role'));
     }
 
@@ -37,7 +40,32 @@ class accountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        if($request->isMethod('POST')){
+            // $request->validate([
+            //     'usename' => 'required|max:255',
+            //     'password' => 'required|max:255',
+            //     'email' => 'required|max:255',
+            // ],[
+
+            // ]);
+
+            if($request->hasFile('image')){
+                $pam = $request->file('image')->store('/storage/account/','public');
+            }else{
+                $pam = null;
+            }
+            accountModel::create( [
+                'username' => $request->username,
+                'password' => Hash::make($request->password),
+                'email'=> $request->email,
+                'image'=> $pam,
+                'created_at' => now(),  
+                'updated_at' => null,
+                'role_id' => $request->role_id
+            ]);
+            return redirect()->route('account')->withErrors('error' , 'bạn thêm tài khoản thành công');
+        }
     }
 
     /**

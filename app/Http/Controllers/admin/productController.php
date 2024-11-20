@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\admin\categoryModel;
 use App\Models\admin\ProductsModel;
 use App\Http\Controllers\Controller;
+use App\Models\admin\imagePoductModel;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -46,6 +47,7 @@ class productController extends Controller
     public function store(Request $request)
     {
         
+        // dd($request->all());
         
         if($request->isMethod('POST')){
             // dd($request->all());
@@ -75,7 +77,7 @@ class productController extends Controller
             }
             
 
-            ProductsModel::create([
+            $product = ProductsModel::create([
                 'name'=>$request->name,
                 'color_id'=> null,
                 'size_id' => null,
@@ -90,10 +92,14 @@ class productController extends Controller
                 'created_at' => now(),
                 'updated_at'=>null,
             ]);
+            // dd($product);
+            foreach ($request->image2 as $as ){
+                imagePoductModel::create([
+                    'product_id' => $product->id,
+                    'link_image'=>$as,
+                ]);
+            }
             return redirect()->route('product')->with('success', 'Sản phẩm đã được thêm thành công!');
-            
-
-            
         }
     }
 

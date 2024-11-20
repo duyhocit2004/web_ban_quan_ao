@@ -10,7 +10,7 @@
           <h5 class="sidebar-main-title">Pinned</h5>
         </li>
         <li class="line pin-line"></li>
-
+        <li  class="sidebar-main-title"><a href="{{route('/')}}">Trang chủ</a> </li>
         <li class="sidebar-main-title">Quản Lý</li>
         <li class="sidebar-list"> 
           <svg class="pinned-icon">
@@ -40,7 +40,7 @@
           </svg><a class="sidebar-link" href="javascript:void(0)">
             <svg class="stroke-icon">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Home"></use>
-            </svg><span> quản lý kích cỡ</span>
+            </svg><span> Quản lý kích cỡ</span>
             {{-- <div class="badge badge-primary rounded-pill">3</div> --}}
             <svg class="feather">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right"></use>
@@ -63,7 +63,34 @@
           </svg><a class="sidebar-link" href="javascript:void(0)">
             <svg class="stroke-icon">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Home"></use>
-            </svg><span> Quản lý Tài khoản</span>
+            </svg><span> Quản lý liên hệ</span>
+            {{-- <div class="badge badge-primary rounded-pill">3</div> --}}
+            <svg class="feather">
+              <use href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right"></use>
+            </svg></a>
+          <ul class="sidebar-submenu"> 
+            <li>
+              <a href="{{route('contact')}}"> 
+                <svg class="svg-menu">
+                  <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
+                </svg>liên hệ có tài khoản</a>
+            </li>
+            <li>
+              <a href="{{route('contactUser')}}"> 
+                <svg class="svg-menu">
+                  <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3"></use>
+                </svg>liên hệ không tài khoản</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar-list"> 
+          <svg class="pinned-icon">
+            <use href="https://admin.pixelstrap.net/admin/assets/svg/iconly-sprite.svg#Pin1"></use>
+          </svg><a class="sidebar-link" href="javascript:void(0)">
+            <svg class="stroke-icon">
+              <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Contact"></use>
+            </svg><span> Quản lý tài khoản</span>
             {{-- <div class="badge badge-primary rounded-pill">3</div> --}}
             <svg class="feather">
               <use href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right"></use>

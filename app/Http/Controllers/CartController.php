@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HomeModel;
 use Illuminate\Http\Request;
 
-
-class HomeController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $listSanPhams = HomeModel::All();
-        // var_dump($listSanPhams);die();
-        return view('admin.home');
+        //
     }
 
     /**

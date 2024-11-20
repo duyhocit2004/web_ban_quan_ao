@@ -18,6 +18,10 @@ class accountModel extends Model
         'address',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'deleted_at',
+        'created_at',
+        'updated_at',
+        
     ];
 }

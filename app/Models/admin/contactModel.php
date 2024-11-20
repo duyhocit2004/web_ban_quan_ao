@@ -5,12 +5,16 @@ namespace App\Models\admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class roleModel extends Model
+class contactModel extends Model
 {
     use HasFactory;
-    protected $table = 'role';
+
+    protected $table = 'contact';
+
     protected $fillable = [
-        'name'
+        'name',
+        'phone',
+        'topic',
+        'message'
     ];
 }
-
